@@ -46,16 +46,35 @@ class TeXViewState extends State<TeXView> {
     js.context['TeXViewRenderedCallback'] = (message) {
       double viewHeight = double.parse(message.toString());
       if (viewHeight != widgetHeight) {
-        if (!mounted) return;
-        setState(() {
-          widgetHeight = viewHeight;
-        });
+        if (mounted) {
+          setState(() {
+            widgetHeight = viewHeight;
+          });
+        }
+        else {
+          retryAction(0, viewHeight);
+        }
       }
     };
 
     js.context['OnTapCallback'] = (id) {
       widget.child.onTapCallback(id);
     };
+  }
+
+  void retryAction(int currentAttempt, double viewHeight) {
+    Future.delayed(const Duration(milliseconds: 100), () {
+      if (mounted) {
+        setState(() {
+          widgetHeight = viewHeight;
+        });
+        return;
+      }
+
+      if (currentAttempt < 3) {
+        retryAction(currentAttempt + 1, viewHeight);
+      }
+    });
   }
 
   void _initTeXView() {
