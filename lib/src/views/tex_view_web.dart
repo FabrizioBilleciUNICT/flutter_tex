@@ -46,6 +46,7 @@ class TeXViewState extends State<TeXView> {
     js.context['TeXViewRenderedCallback'] = (message) {
       double viewHeight = double.parse(message.toString());
       if (viewHeight != widgetHeight) {
+        if (!mounted) return;
         setState(() {
           widgetHeight = viewHeight;
         });
