@@ -191,9 +191,9 @@ flutter:
     - packages/flutter_tex/js/katex/fonts/KaTeX_Main-Italic.ttf
     - packages/flutter_tex/js/katex/fonts/KaTeX_Main-Italic.woff
     - packages/flutter_tex/js/katex/fonts/KaTeX_Main-Italic.woff2
-    - packages/flutter_tex/js/katex/fonts/KaTeX_Main-Regular.ttf
-    - packages/flutter_tex/js/katex/fonts/KaTeX_Main-Regular.woff
-    - packages/flutter_tex/js/katex/fonts/KaTeX_Main-Regular.woff2
+    - packages/flutter_tex/js/katex/fonts/_KaTeX_Main-Regular.ttf
+    - packages/flutter_tex/js/katex/fonts/_KaTeX_Main-Regular.woff
+    - packages/flutter_tex/js/katex/fonts/_KaTeX_Main-Regular.woff2
     - packages/flutter_tex/js/katex/fonts/KaTeX_Math-BoldItalic.ttf
     - packages/flutter_tex/js/katex/fonts/KaTeX_Math-BoldItalic.woff
     - packages/flutter_tex/js/katex/fonts/KaTeX_Math-BoldItalic.woff2
