@@ -22,6 +22,12 @@ class TeXViewStyle {
   ///Width of view.
   final int? width;
 
+  ///MinHeight of View.
+  final int? minHeight;
+
+  ///MinWidth of view.
+  final int? minWidth;
+
   ///Elevation of View.
   final int? elevation;
 
@@ -49,6 +55,8 @@ class TeXViewStyle {
       this.sizeUnit,
       this.height,
       this.width,
+      this.minHeight,
+      this.minWidth,
       this.elevation,
       this.contentColor,
       this.backgroundColor,
@@ -65,6 +73,8 @@ class TeXViewStyle {
         sizeUnit = null,
         height = null,
         width = null,
+        minHeight = null,
+        minWidth = null,
         elevation = null,
         contentColor = null,
         backgroundColor = null,
@@ -75,6 +85,6 @@ class TeXViewStyle {
 
   String? initStyle() {
     return cascadingStyleSheets ??
-        """$teXViewDefaultStyle ${padding?.getPadding() ?? ""}${margin?.getMargin() ?? ""}${borderRadius?.getRadius() ?? ""}${border?.getBorder() ?? ""}${height != null ? "height: " + getSizeWithUnit(height, sizeUnit) + ";" : ""}${width != null ? "width: " + getSizeWithUnit(width, sizeUnit) + ";" : ""}${elevation != null ? "box-shadow: " + getElevation(elevation, sizeUnit) + ";" : ""}${contentColor != null ? "color: " + getColor(contentColor) + ";" : ""}${backgroundColor != null ? "background-color: " + getColor(backgroundColor) + ";" : ""}${textAlign != null ? "text-align: " + TeXViewTextAlignHelper.getValue(textAlign) + ";" : ""}${fontStyle?.initFontStyle() ?? ""}""";
+        """$teXViewDefaultStyle ${padding?.getPadding() ?? ""}${margin?.getMargin() ?? ""}${borderRadius?.getRadius() ?? ""}${border?.getBorder() ?? ""}${height != null ? "height: " + getSizeWithUnit(height, sizeUnit) + ";" : ""}${width != null ? "width: " + getSizeWithUnit(width, sizeUnit) + ";" : ""}${minHeight != null ? "min-height: " + getSizeWithUnit(minHeight, sizeUnit) + ";" : ""}${minWidth != null ? "min-width: " + getSizeWithUnit(minWidth, sizeUnit) + ";" : ""}${elevation != null ? "box-shadow: " + getElevation(elevation, sizeUnit) + ";" : ""}${contentColor != null ? "color: " + getColor(contentColor) + ";" : ""}${backgroundColor != null ? "background-color: " + getColor(backgroundColor) + ";" : ""}${textAlign != null ? "text-align: " + TeXViewTextAlignHelper.getValue(textAlign) + ";" : ""}${fontStyle?.initFontStyle() ?? ""}""";
   }
 }
