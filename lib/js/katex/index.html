@@ -46,6 +46,13 @@
             renderMathInElement(teXView);
             setTimeout(function () {
                 onCompleteCallback();
+                // hotfix: \neq not displayed
+                var list = document.getElementsByClassName("mrel");
+                for (var i=0; i<list.length; i++) {
+                    if (list[i].innerHTML === '') {
+                        list[i].innerHTML = "/"
+                    }
+                }
             }, 0)
         }
 
